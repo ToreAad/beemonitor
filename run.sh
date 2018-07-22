@@ -1,7 +1,7 @@
 #!/bin/bash
 cd /home/pi/beemonitor/
-FILEDATE=$(date + "%Y-%m-%d")
-DATADATE=$(date + "%Y-%m-%d_%H%M")
+FILEDATE=$(date +"%Y-%m-%d").txt
+DATADATE=$(date +"%Y-%m-%d %H:%M:%S")
 DATA=$(am2301)
-echo DATADATE DATA >> DATA
-#python upload_data.py DATA
+echo $DATADATE  $DATA >> "$FILEDATE"
+python upload_data.py $FILEDATE
